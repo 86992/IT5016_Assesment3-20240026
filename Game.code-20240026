@@ -1,0 +1,151 @@
+import time
+class Player:
+   def __init__(self):
+       self.inventory = []
+   def add_to_inventory(self, item):
+       self.inventory.append(item)
+   def show_inventory(self):
+       print("Inventory:")
+       for item in self.inventory:
+           print("-", item)
+class Room:
+   def __init__(self, name, description):
+       self.name = name
+       self.description = description
+       self.paths = {}
+   def add_path(self, direction, room):
+       self.paths[direction] = room
+def introduction():
+   print("Welcome to the Text Adventure Game!")
+   time.sleep(1)
+   print("You find yourself in a mysterious place...")
+   time.sleep(1)
+   print("Your goal is to reach the treasure at the end of your journey.")
+   time.sleep(1)
+   print("Let's begin!\n")
+def create_rooms():
+   room1 = Room("Dark Room", "You are in a dark room. There are two doors in front of you, one on the left and one on the right.")
+   room2 = Room("Room with a Key", "You find yourself in a room with a key on a table.")
+   room3 = Room("Monster Room", "You enter a room and encounter a fearsome monster!")
+   room4 = Room("Treasure Room", "Congratulations! You have found the treasure.")
+   room1.add_path("left", room2)
+   room1.add_path("right", room3)
+   room2.add_path("back", room1)
+   room3.add_path("back", room1)
+   room4.add_path("back", room1)
+   return room1, room2, room3, room4
+def play_game():
+   player = Player()
+   current_room = create_rooms()[0]  # Start in the first room
+   while True:
+       print("\n" + "=" * 50)
+       print(current_room.name)
+       print(current_room.description)
+       if current_room.name == "Room with a Key" and "key" not in player.inventory:
+           print("There is a key on the table.")
+           choice = input("Do you want to take the key? (yes/no): ").lower()
+           if choice == "yes":
+               print("You take the key.")
+               player.add_to_inventory("key")
+           else:
+               print("You leave the key behind.")
+       if current_room.name == "Monster Room":
+           print("You encounter a fearsome monster!")
+           if "sword" in player.inventory:
+               print("You defeat the monster with your sword!")
+           else:
+               print("You don't have a weapon to defeat the monster. Game Over!")
+               break
+       player.show_inventory()
+       time.sleep(1)
+       if current_room.name == "Treasure Room":
+           print("Congratulations! You have found the treasure.")
+           break
+       direction = input("Which direction do you want to go? (left/right/back): ").lower()
+       if direction in current_room.paths:
+           current_room = current_room.paths[direction]
+       else:
+           print("Invalid direction. Please try again.")
+def main():
+   introduction()
+   play_game()
+if __name__ == "__main__":
+   main()
+import time 
+class Player:    
+    def __init__(self) -> None:
+        pass
+
+import time
+class Player:
+   def __init__(self):
+       self.inventory = []
+   def add_to_inventory(self, item):
+       self.inventory.append(item)
+   def show_inventory(self):
+       print("Inventory:")
+       for item in self.inventory:
+           print("-", item)
+class Room:
+   def __init__(self, name, description):
+       self.name = name
+       self.description = description
+       self.paths = {}
+   def add_path(self, direction, room):
+       self.paths[direction] = room
+def intro():
+   print("Welcome to the Text Adventure Game!")
+   time.sleep(1)
+   print("You find yourself in a mysterious place...")
+   time.sleep(1)
+   print("Your goal is to reach the treasure at the end of your journey.")
+   time.sleep(1)
+   print("Let's begin!\n")
+def create_rooms():
+   room1 = Room("Dark Room", "You are in a dark room. There are two doors in front of you, one on the left and one on the right.")
+   room2 = Room("Room with a Key", "You find yourself in a room with a key on a table.")
+   room3 = Room("Monster Room", "You enter a room and encounter a fearsome monster!")
+   room4 = Room("Treasure Room", "Congratulations! You have found the treasure.")
+   room1.add_path("left", room2)
+   room1.add_path("right", room3)
+   room2.add_path("back", room1)
+   room3.add_path("back", room1)
+   room4.add_path("back", room1)
+   return room1, room2, room3, room4
+def play_game():
+   player = Player()
+   current_room = create_rooms()[0]  # Start in the first room
+   while True:
+       print("\n" + "=" * 50)
+       print(current_room.name)
+       print(current_room.description)
+       if current_room.name == "Room with a Key" and "key" not in player.inventory:
+           print("There is a key on the table.")
+           choice = input("Do you want to take the key? (yes/no): ").lower()
+           if choice == "yes":
+               print("You take the key.")
+               player.add_to_inventory("key")
+           else:
+               print("You leave the key behind.")
+       if current_room.name == "Monster Room":
+           print("You encounter a fearsome monster!")
+           if "sword" in player.inventory:
+               print("You defeat the monster with your sword!")
+           else:
+               print("You don't have a weapon to defeat the monster. Game Over!")
+               break
+       player.show_inventory()
+       time.sleep(1)
+       if current_room.name == "Treasure Room":
+           print("Congratulations! You have found the treasure.")
+           break
+       direction = input("Which direction do you want to go? (left/right/back): ").lower()
+       if direction in current_room.paths:
+           current_room = current_room.paths[direction]
+       else:
+           print("Invalid direction. Please try again.")
+def main():
+   intro()
+   play_game()
+if __name__ == "__main__":
+   main()
