@@ -1,5 +1,5 @@
 Welcome to the Text Adventure Game! This is a simple Python text-based game where you can enjoy game like treasure hunting and stuff
-How to Play
+How to Play:
 Introduction: Upon starting the game, you'll receive an introduction to the storyline and your objective.
 Rooms: You'll navigate through different rooms, each with its own description and challenges.
 Inventory: You can collect items during your journey. Keep track of your inventory to overcome obstacles.
@@ -11,3 +11,8 @@ Highlight the key features of the game:
 Dynamic Story: Mention if the game has a branching narrative based on player choices.
 Randomized Elements: Discuss any random events or room layouts that add replay value.
 Puzzle-solving: If applicable, mention puzzles players encounter and solve during the game.
+Encourage others to contribute to the game's development:
+
+Forking: Provide instructions on how to fork the repository.
+Improvements: Suggest areas where contributors can help, such as adding new rooms, items, or features.
+Pull Requests: Explain how to submit pull requests with changes or enhancements.
